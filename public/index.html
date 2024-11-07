@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/chat-list.css">
+
+
+    <style>
+        body {
+            position: relative;
+        }
+
+        body::before {
+            display: none;
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url(./img/bg-login-blue.jpeg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #e1f1ea;
+            background-size: cover;
+            filter: blur(2px) brightness(0.9);
+            z-index: -1;
+        }
+
+        nav {
+            height: 100%;
+        }
+
+        .img-size {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .z-0 {
+            z-index: 0;
+        }
+
+        .z-1 {
+            z-index: 1;
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* colors */
+
+        .space-between {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cream-light-blue {
+            background-color: #93deff45;
+        }
+
+        header {
+            background-color: #fff;
+        }
+
+        .nav-icons {
+            color: gray;
+        }
+
+        .nav-icons-header {
+            min-width: 25px;
+        }
+
+        .muted {
+            color: #495257;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .fixed {
+            position: fixed;
+        }
+
+        .ml {
+            margin-left: 10%;
+        }
+
+        .bg-primary {
+            background: #6da7ba !important;
+            color: #fff;
+        }
+
+        .c-shadow {
+            box-shadow: 7px 9px 10px #00000026, -1px -1px 11px #00000026 !important;
+        }
+
+        .c-in-shadow {
+            box-shadow: inset 5px 6px 9px #00000026
+        }
+
+        .input-search {
+            padding: 10px 16px;
+            box-shadow: inset 5px 6px 9px #00000026;
+        }
+
+        .btn-shadow {
+            padding: 10px 16px;
+            box-shadow: inset 5px 3px 3px #00000026, inset -1px -1px 2px #00000026;
+        }
+
+        .btn:hover {
+            background-color: #6da7ba;
+        }
+
+        .btn-active {
+            background-color: #6da7ba;
+            color: #fff;
+            transition-duration: 200ms;
+        }
+
+        .btn-active:hover {
+            background-color: #8fbfce;
+        }
+
+        .btn-2 {
+            color: #ff0000;
+        }
+
+        .btn-2:hover {
+            background-color: transparent;
+            color: #fd6969;
+        }
+
+        .col-5 {
+            flex: 0 0 auto;
+            width: auto;
+        }
+
+        .btn-width {
+            width: 150px;
+        }
+
+        .instagram {
+            background: linear-gradient(135deg, #7700ff, #b905aa);
+            color: #fff;
+        }
+
+        .instagram:hover {
+            background: linear-gradient(135deg, hwb(268 67% 1%), #eb57de);
+        }
+
+        .whatsapp {
+            background: green;
+            color: #fff;
+        }
+
+        .btn-active .nav-icons-header {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body onload="onloadBody()" class="p-0 cream-light-blue ">
+    <div id="alert-box" class="vh-100 flex-col flex-center z-3 hidden">
+        <div id="alert" class="text-center vh-75 border bg-white shadow-lg p-4 pt-0 rounded-3 flex-center">
+            <p class="muted display-6 fw-bold">Please Wait</p>
+            <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="small">Loading...</p>
+        </div>
+    </div>
+    <div id="main-body" class="container-fluid row p-0 relative z-3">
+        <header class="col-2 col-md-1 p-4 border shadow-lg text-center vh-100 fixed">
+            <nav class="space-between">
+                <ul class="list-unstyled  p-1">
+                    <li class="p-2 mt-4 rounded-3 btn-shadow btn-active">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                                class="nav-icons nav-icons-header ">
+                                <path
+                                    d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"
+                                    fill="currentColor" />
+                            </svg>
+                    </li>
+                    <li class="p-2 mt-4 rounded-3 btn-shadow" onclick="showQR()">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                                class="nav-icons nav-icons-header ">
+                                <path
+                                    d="M80-680v-200h200v80H160v120H80Zm0 600v-200h80v120h120v80H80Zm600 0v-80h120v-120h80v200H680Zm120-600v-120H680v-80h200v200h-80ZM700-260h60v60h-60v-60Zm0-120h60v60h-60v-60Zm-60 60h60v60h-60v-60Zm-60 60h60v60h-60v-60Zm-60-60h60v60h-60v-60Zm120-120h60v60h-60v-60Zm-60 60h60v60h-60v-60Zm-60-60h60v60h-60v-60Zm240-320v240H520v-240h240ZM440-440v240H200v-240h240Zm0-320v240H200v-240h240Zm-60 500v-120H260v120h120Zm0-320v-120H260v120h120Zm320 0v-120H580v120h120Z"
+                                    fill="currentColor" />
+                            </svg>
+                    </li>
+                    <li class="p-2 mt-4 rounded-3 btn-shadow" onclick="showHelp()">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                                class="nav-icons nav-icons-header ">
+                                <path
+                                    d="M476-280q21 0 35.5-14.5T526-330q0-21-14.5-35.5T476-380q-21 0-35.5 14.5T426-330q0 21 14.5 35.5T476-280Zm-36-154h74q0-17 1.5-29t6.5-23q5-11 12.5-20.5T556-530q35-35 49.5-58.5T620-642q0-53-36-85.5T487-760q-55 0-93.5 27T340-658l66 26q7-27 28-43.5t49-16.5q27 0 45 14.5t18 38.5q0 17-11 36t-37 42q-17 14-27.5 27.5T453-505q-7 15-10 31.5t-3 39.5Zm40 394L360-160H200q-33 0-56.5-23.5T120-240v-560q0-33 23.5-56.5T200-880h560q33 0 56.5 23.5T840-800v560q0 33-23.5 56.5T760-160H600L480-40ZM200-240h192l88 88 88-88h192v-560H200v560Zm280-280Z"
+                                    fill="currentColor" />
+                            </svg>
+                    </li>
+                    <li class="p-2 mt-4 rounded-3 btn-shadow hidden">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                                class="nav-icons nav-icons-header ">
+                                <path
+                                    d="M200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm80-80h400v-10q-42-35-93-52.5T480-280q-56 0-107 17.5T280-210v10Zm200-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="list-unstyled">
+                    <hr>
+                    <li class="p-2 mt-4 rounded-3 btn-shadow" onclick="logout()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                            class="nav-icons nav-icons-header">
+                            <path
+                                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"
+                                fill="currentColor" />
+                        </svg>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="ml container-fluid vh-100 col-10 flex-row">
+            <div class="col-md-5 p-4">
+                <p class="display-4 fw-semibold muted mt-4 mb-3">Dashbord</p>
+                <p class=" h5 fw-medium muted ">Customers</p>
+                <div class="bg-white rounded-4 p-4 col vh-75 shadow">
+                    <div class="flex shadow-sm">
+                        <div class="flex-row">
+                            <input id="searchInput" type="text " class="form-control input-search"
+                                placeholder="Search... " oninput="searchChats()">
+                            <button class="btn bg-primary btn-shadow" onclick="searchChats()"><span><i
+                                        class="fa fa-search "></i></span></button>
+                        </div>
+                    </div>
+                    <ul class="chat-list mt-3 col list-unstyled scroll-y h-90 p-2 c-in-shadow rounded-3">
+                        <li class="container-fluid flex-row c-shadow rounded-4 mt-3">
+                            <div class=" col-3 ">
+                                <img src="./img/hero-printer.png " alt=" " width="80px " height="80px "
+                                    class="img-size">
+                            </div>
+                            <div class="col-7 m-1 mt-0 mb-0 ">
+                                <p class="h6 m-0 ">CUS-BH-89-NH <span>(Vijay mourya)</span></p>
+                                <small>12 minut ago</small>
+                            </div>
+                            <div class="col-2 text-center btn btn-2" onclick="deleteChat()">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                    <path
+                                        d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-8 p-4">
+                <div class="col-12 row bg-primary mt-4 mb-4 rounded-3 shadow text-center">
+                    <div class="col-4 pt-2 pb-2">
+                        <a href="/"><img src="./img/logo-w.png" alt="" height="50px"></a class="img-size">
+                    </div>
+                    <div class="col-8 m-0 p-0">
+                        <!-- add ads here -->
+                    </div>
+                </div>
+                <p class=" h5 fw-medium muted ">Documents</p>
+                <div class="bg-white rounded-4 p-4 col vh-75 shadow chats">
+                    <div class="flex shadow-sm chat-header">
+                        <div class="container-fluid flex-row c-in-shadow rounded-4 mt-0 p-2">
+                            <div class=" col-1 p-0 m-1 mb-0 mt-0">
+                                <img src="./img/hero-printer.png " alt="" class="img-size" class="img-size">
+                            </div>
+                            <div class="col-6 m-3 mt-0 mb-0">
+                                <p class="fw-bold m-0 ">CUS-BH-89-NH <span>(Vijay mourya)</span></p>
+                                <small>12 minut ago</small>
+                            </div>
+
+                            <div class="col-4 text-end hidden">
+                                <button class="btn btn-shadow p-3 pt-2 pb-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+                                        width="24">
+                                        <path
+                                            d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="btn btn-shadow p-3 pt-2 pb-2 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+                                        width="24">
+                                        <path
+                                            d="M640-640v-120H320v120h-80v-200h480v200h-80Zm-480 80h640-640Zm560 100q17 0 28.5-11.5T760-500q0-17-11.5-28.5T720-540q-17 0-28.5 11.5T680-500q0 17 11.5 28.5T720-460Zm-80 260v-160H320v160h320Zm80 80H240v-160H80v-240q0-51 35-85.5t85-34.5h560q51 0 85.5 34.5T880-520v240H720v160Zm80-240v-160q0-17-11.5-28.5T760-560H200q-17 0-28.5 11.5T160-520v160h80v-80h480v80h80Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="dataList" class="mt-3 col list-unstyled scroll-y h-80 p-2 pt-0 c-in-shadow rounded-3">
+                        <li class="container-fluid flex-row c-shadow rounded-2 pt-3 pb-3 mt-3 ">
+                            <div class=" col-1 p-0 m-2 mb-0 mt-0">
+                                <img src="./img/jpg.png" alt="" class="img-size">
+                            </div>
+                            <div class="col-7">
+                                <p class="m-0 muted h6">vijay</p>
+                                <div class="flex-row">
+                                    <small class="p-1"></small>
+                                    <small class="p-1"></small>
+                                </div>
+                            </div>
+                            <div class="col-4 text-start">
+                                <button class="btn btn-shadow p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+                                        width="24">
+                                        <path
+                                            d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <small>Download</small>
+                                </button>
+                                <button class="btn btn-shadow p-2 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+                                        width="24">
+                                        <path
+                                            d="M640-640v-120H320v120h-80v-200h480v200h-80Zm-480 80h640-640Zm560 100q17 0 28.5-11.5T760-500q0-17-11.5-28.5T720-540q-17 0-28.5 11.5T680-500q0 17 11.5 28.5T720-460Zm-80 260v-160H320v160h320Zm80 80H240v-160H80v-240q0-51 35-85.5t85-34.5h560q51 0 85.5 34.5T880-520v240H720v160Zm80-240v-160q0-17-11.5-28.5T760-560H200q-17 0-28.5 11.5T160-520v160h80v-80h480v80h80Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <small>Print</small>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/bootstrap.bundle.min.js "></script>
+<script src="./js/index-dashboard.js "></script>
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script> -->
+<script>
+    var socket_url = '/'; // Use your actual server URL and port
+    var socket = io.connect(socket_url, {
+        query: { username: getShopIdFromCookie() }
+    });
+
+    socket.on('connect', function (data) {
+        console.log("connect");
+    });
+
+    socket.on('receiveMsg', function (data){
+        console.log("file uploaded", data)
+        onloadBody()
+    })
+    
+</script>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>singup</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/user.css">
+    <style>
+        body {
+            height: 90vh;
+        }
+        
+        .c-bg-color {
+            background-color: #e1f1ea;
+        }
+        
+        .c-row {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .page {
+            font-size: 3rem;
+            font-family: fantasy;
+            letter-spacing: 10px;
+            color: transparent;
+            font-stretch: expanded;
+            text-shadow: 1px 1px 0px #90b9bd;
+        }
+        
+        .muted {
+            color: #56696b;
+        }
+        
+        .icons {
+            background-color: #fff;
+            width: 40px;
+            height: 30px;
+        }
+        
+        .input-box {
+            border: none;
+            width: 50%;
+            padding: 0px 16px;
+            background-color: #bde2c5;
+        }
+        /* .c-bg {
+            height: 75vh;
+            background-image: url(./img/login-bg.jpg);
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+        } */
+        /* .c-bg-2 {
+            position: relative;
+        }
+        
+        .c-bg-2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./img/bg-login-blue.jpeg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #e1f1ea;
+            background-size: cover;
+            filter: blur(2px) brightness(0.9);
+            z-index: -1;
+        } */
+        
+        .c-color {
+            color: #000000;
+        }
+        
+        .text-right {
+            text-align: end;
+        }
+        
+        .mt-5 {
+            margin-top: 5%;
+        }
+        
+        .tr-bg-color {
+            background-color: #ffffffc2 !important
+        }
+        
+        .vh-77 {
+            height: 77vh;
+        }
+        
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .bottom {
+            bottom: 0;
+        }
+        
+        .right {
+            right: 16px;
+        }
+    </style>
+</head>
+
+<body class="container c-bg-color">
+    <div class="row align-items-center rounded-3 border shadow-lg c-bg-2 mt-5 vh-77">
+        <div class="col-lg-7 c-bg vh-77 bg-white relative">
+            <img src="./img/login-bg.jpg" alt="" class="vh-77 absolute">
+            <div class="mt-4 bottom right absolute">
+                <p class="h4 c-color">For any help </p>
+                <p class="c-color">
+                    <ul class="c-color list-unstyled">
+                        <li>
+                            <strong class="c-color">Developer:</strong> Vijay Mourya
+                        </li>
+                        <li>
+                            <strong class="c-color">WhatsApp :</strong> 6266461606
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-5 p-4 overflow-hidden shadow-lg c-bg-color">
+            <div class="p-3 text-center">
+                <p class="page">LOGIN</p>
+                <hr class="m-4 mb-0 mt-0">
+            </div>
+            <div class="p-3 text-center">
+                <p class="h5 muted">Share Without Number</p>
+                <p class="small muted">Share Without Number</p>
+            </div>
+            <div class="p-0 mt-0 text-center">
+                <div class="mb-3 c-row">
+                    <div class="icons">👤</div>
+                    <input id="shop-code" type="text" class="form-control input-box" placeholder="Shop Unique code">
+                </div>
+                <div class="mb-3 c-row">
+                    <div class="icons">🔑</div>
+                    <input id="pass" type="password" class="form-control input-box" placeholder="passsword">
+                </div>
+                <div class="c-row mb-3">
+                    <button class="input-box p-1 muted" style="width: 30%;" onclick="login()"><strong>login</strong></button>
+                </div>
+                <div class="flex-col flex-col-center">
+                    <hr class="w-50 mt-0 mb-0">
+                    <p class="small">Don't have an account?
+                        <a href="singup.html"> Singup</a>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <img src="./img/logo-b.png" alt="" width="200px">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/login.js"></script>
+
+</html>

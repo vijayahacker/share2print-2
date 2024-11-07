@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Not Found</title>
+</head>
+
+<body>
+    <h1>File Not Found</h1>
+    <p>The requested file could not be found.</p>
+    <button onclick="closeTabOrGoBack()">Close Tab or Go Back</button>
+
+    <script>
+        function closeTabOrGoBack() {
+            // Attempt to close the current tab/window
+            if (window.opener) {
+                window.close();
+            } else {
+                // If window.opener is not available, go back in the browser history
+                history.back();
+            }
+        }
+    </script>
+</body>
+
+</html>

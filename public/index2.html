@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/chat-list.css">
+    <style>
+        .msg-box {
+            padding: 16px;
+            background-color: #fff;
+            width: 40%;
+            min-width: 300px;
+        }
+        
+        .bg-orange {
+            background-color: orange;
+        }
+        
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .flex-row-centers {
+            display: flex;
+            align-items: center;
+        }
+        
+        .flex-inline {
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        .search-box {
+            display: flex;
+            width: 100%;
+        }
+        
+        .search-btn {
+            border: none;
+            padding: 10px 16px;
+            background-color: #99d3ee;
+            color: #fff;
+        }
+        
+        .bg-primary {
+            background: #45c4ff !important;
+        }
+        
+        .table-striped-c>tbody>tr:nth-of-type(even)>* {
+            --bs-table-color-type: var(--bs-table-striped-color);
+            --bs-table-bg-type: #e4e4e4;
+        }
+        
+        .table {
+            --bs-table-bg: none;
+        }
+        
+        .active {
+            background-color: #c6e8f8 !important;
+        }
+        
+        .activeChat {
+            background-color: #c6e8f8 !important;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .pt-2 {
+            padding-top: 16px;
+        }
+        
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="onloadBody()">
+    <div id="alert-box" class="msg-wrapper flex-center hidden">
+        <div class="msg-box activeChat p-4 text-center shadow">
+            <div id="alert" class="text-center">
+                <p class="muted display-6 fw-bold">Please Wait</p>
+                <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>
+                <p class="small">Loading...</p>
+            </div>
+            <img src="./img/logo-b.png " alt=" " width="210px ">
+        </div>
+    </div>
+    <header class="shadow-sm mb-0 ">
+        <nav id="navbar-example2 " class="navbar px-3 ">
+            <a href="# "><img src="./img/logo-b.png " alt="Share2Print-logo " height="50px " style="margin:0; padding: 0%; "></a>
+            <ul class="nav rounded-5 bg-orange p-3 pt-1 pb-1">
+                <li class="nav-item rounded-circle pt-1 pb-1">
+                    <a class="nav-link" href="#scrollspyHeading1 "><img src="./svg/live_help_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a>
+                </li>
+                <li class="nav-item rounded-circle pt-1 pb-1">
+                    <a class="btn nav-link" href="#scrollspyHeading1 "><img src="./svg/profile-icon.svg" alt="profile"></a>
+                </li>
+                <li class="nav-item rounded-circle pt-1 pb-1 active">
+                    <button class="btn nav-link" onclick="showQr()"><img src="./svg/qr_code_scanner_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-fluid vh-85 ">
+        <div class="row align-items-center rounded-3 border shadow-lg p-0 h-100 row-no-gutters ">
+            <div class="col-lg-3 shadow-lg border h-100 scroll-y pt-2 ">
+                <div class="search-box ">
+                    <button class="search-btn "><span><i class="fa fa-search "></i></span></button>
+                    <input type="text " class="form-control " placeholder="Search... ">
+                </div>
+                <ul class="chat-list list-unstyled mt-2 mb-0 border h-100 ">
+                </ul>
+            </div>
+            <div class="col-lg-9 shadow-lg border h-100 scroll-y ">
+                <div class="container-fluid ">
+                    <div class="row row-no-gutters d-flex flex-inline border p-0 mt-2 ">
+                        <div class="col-lg-9 p-2 d-flex flex-inline ">
+                            <a href="javascript:void(0); " data-toggle="modal " data-target="#view_info ">
+                                <div class="flex-center profile-icon border ">
+                                    <h4 class="mb-0 chat-header profile ">f</h4>
+                                </div>
+                            </a>
+                            <div class="chat-about m-3 mb-0 mt-0 ">
+                                <h6 class="m-b-0 header-name ">Aiden Chavez</h6>
+                                <small class="header-time ">Last seen: 2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 text-end ">
+                            <button class="col btn border ">Print All</button>
+                            <button class="col btn border text-bg-green ">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-unstyled mt-2 mb-0 border h-100 p-0 ">
+                    <div class="m-0 border-0 p-4 ">
+                        <table class="table table-striped-c ">
+                            <thead class="border bg-primary ">
+                                <tr>
+                                    <th scope="col ">File Name</th>
+                                    <th scope="col ">Print</th>
+                                    <th scope="col ">Download</th>
+                                </tr>
+                            </thead>
+                            <tbody id="td-data">
+                                <tr>
+                                    <td>v</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/bootstrap.bundle.min.js "></script>
+<script src="./js/index-dashboard.js "></script>
+
+</html>

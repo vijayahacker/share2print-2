@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="c.css">
+    <title>Document</title>
+</head>
+
+<body class=" w3-larger" style="position: relative;">
+
+    <div id="c-wrapper" class="c-body c-wraper w3-container">
+        <div class="w3-container w3-center">
+            <div style="width: 100%" class="w3-container">
+                <div class="w3-container w3-center" style="width:110%; margin:auto auto" id="reader">
+                    <img class="w3-image" src="./img/barcode-scan.jpeg" style="width: 150px;">
+                </div>
+            </div>
+            <div class="w3-container w3-center">
+                <p id="resPID">scane qr code</p>
+                <button class="w3-button w3-black w3-round-large c-width" onclick="openScanner()">scan</button>
+                <button class="w3-button w3-black w3-round-large c-width" onclick="sotpCamera()">stop</button>
+
+            </div>
+            <div class="w3-container w3-center">
+                <div id="result"></div>
+            </div>
+
+        </div>
+    </div>
+    <div id="main-body" class="c-body" style="right: 0px;left: 0px;">
+        <nav class="w3-border-bottom w3-padding w3-card c-row">
+            <ia>🔲</ia>
+            <h4 class="w3-center c-width" center><b>myStore</b></h4>
+        </nav>
+        {{!-- header section --}}
+        <div class="w3-container">
+            <div class="w3-container w3-center w3-margin-top">
+                <h1>My Store</h1>
+            </div>
+        </div>
+        {{!-- list wrapper --}}
+        <div class="w3-container">
+            <div class="w3-container w3-padding">
+                <div class="c-row">
+                    <p class="w3-large">cid:</p>
+                    <p id="cid">{{data.cid}}</p>
+                </div>
+                {{!-- table header --}}
+                <div class="w3-card w3-black c-row w3-padding w3-round-large">
+                    <p class="c-80">name of product</p>
+                    <p class="c-20">quantity</p>
+                </div>
+                {{!-- list container --}}
+                <div id="list">
+                    <div class="w3-card c-gray c-row w3-padding w3-round-large">
+                        <p class="c-80">no product selected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c-row-right">
+            <button class="w3-black w3-round-large w3-button w3-margin-right" onclick="add()">Add</button>
+            <button class="w3-black w3-round-large w3-button w3-margin-right" onclick="reset()">Reset</button>
+        </div>
+        <div class="w3-container w3-center">
+            <button type="submit" class="w3-button c-width w3-card w3-black w3-round-large w3-margin-top"
+                onclick='createBill()' hidden>Generate</button>
+        </div>
+    </div>
+</body>
+<script src="./js/axios.js"></script>
+<script src="./js/library_scanner.js"></script>
+<script src="./js/scanner_config.js"></script>
+<script src="./js/additem.js"></script>
+
+</html>

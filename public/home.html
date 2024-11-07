@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share2Print</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/user.css">
+</head>
+
+<body>
+    <div class="msg-wrapper flex-center hidden">
+        <div class="msg-box flex-col flex-col-center shadow rounded">
+            <img src="./img/logo-b.png" alt="" width="100%">
+            <p class="larger">Your prints are ready!</p>
+            <p class="h3">34/- Rs</p>
+        </div>
+    </div>
+    <div class="body">
+        <div class="header shadow">
+            <div class="logo">
+                <a href="#Home"><img src="./img/logo-b.png" alt="" width="200px"></a>
+            </div>
+        </div>
+        <div class="flex-col">
+            <div class="text-center">
+                <div class="img-container">
+                    <img src="./img/hero-printer.png" alt="printer" width="300px">
+                </div>
+                <p class="h1 fw-bold P-4 m-4 mt-0 mb-0 letter-spacing">
+                    SHARE WITHOUT NUMBER
+                </p>
+                <p class="mt-3">Secure, Easy, Auto Delete, and free</p>
+            </div>
+            <div class="text-center hidden scan-preview">
+                <div class="m-3 p-3 border shadow-lg">
+                    <div id="canvas" class="canvas border shadow-lg m-4">
+                    </div>
+                    <div class="container-fluid d-flex">
+                        <button class="w-100 p-2 m-4 mb-0 mt-0 btn border bg-danger text-white fw-bold" onclick="sotpCamera()">Clode</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <div class="text-center h6" id="shopCode"></div>
+                <button class="c-btn" onclick="openScanner()">Scan code</button>
+                <p class="mt-2">Have any query? Ask <a href="#ask">Here</a></p>
+            </div>
+            <div class="col">
+                <p class="text-center">Supported Documents</p>
+                <ul class="flex-row list-unstyled m-4 m-t-0 m-b-0">
+                    <li class="text-center">
+                        <img src="./img/jpg.png" alt="docs-jpeg " width="50px">
+                        <p>Images</p>
+                    </li>
+                    <li class="text-center">
+                        <img src="./img/pdf.png" alt="docs-pdf " width="50px">
+                        <p>PDF's</p>
+                    </li>
+                    <li class="text-center">
+                        <img src="./img/dox.png" alt="docs-doc" width="50px">
+                        <p>DOC's</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer class="text-center">
+            <hr>
+            <p class="h1">Thank you</p>
+            <p>Developed by BCA</p>
+        </footer>
+    </div>
+
+</body>
+<script src="./js/library/library_scanner.js"></script>
+<script src="./js/library/scanner_config.js"></script>
+
+</html>
